@@ -10,19 +10,15 @@ namespace pengine {
         private:
             std::unordered_map<Identifier, std::shared_ptr<Resource>> _resources;
         public:
-            void insert(Identifier& id, Resource resouce) {
-                _resources.emplace(std::pair(id, std::make_shared(resouce)));
+            void insert(Identifier id, std::shared_ptr<Resource> resouce) {
+                _resources.emplace(std::pair(id, resouce));
             }
 
-            std::optional<std::shared_ptr<Identifier>> get(Identifier& id){
-                auto q = _resources.find(id);
-                if(q == _resources.end()){
-                    return std::nullopt;
-                }
+            std::shared_ptr<Resource> get(Identifier id){
                 return _resources[id];
             }
 
-            void remove(Identifier& id) {
+            void remove(Identifier id) {
                 auto q = _resources.find(id);
                 if(q == _resources.end()){
                     return;
