@@ -18,7 +18,7 @@ namespace pengine {
             void _update();
             void _render();
             float _delta;
-            std::vector<std::unique_ptr<System>> _systems;
+            std::vector<std::shared_ptr<System>> _systems;
         public:
             ResourceManager<sf::Texture, std::string> textures;
             Game();
@@ -26,6 +26,6 @@ namespace pengine {
             void run();
             std::shared_ptr<sf::RenderWindow> win();
             entt::registry reg;
-            void addSystem(std::unique_ptr<System> sys);
+            void addSystem(std::shared_ptr<System> sys);
     };
 }

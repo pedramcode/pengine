@@ -22,7 +22,7 @@ namespace pengine {
         return _win;
     }
 
-    void Game::addSystem(std::unique_ptr<System> sys){
+    void Game::addSystem(std::shared_ptr<System> sys){
         _systems.push_back(sys);
     }
 }
